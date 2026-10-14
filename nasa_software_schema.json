@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/nasa-software-search.schema.json",
+  "title": "NASA Software Search Response",
+  "description": "Response shape observed from the NASA Technology Transfer software visualization API.",
+  "type": "object",
+  "required": ["results"],
+  "properties": {
+    "results": {
+      "type": "array",
+      "description": "Search results; each result is a positional record.",
+      "items": {
+        "type": "array",
+        "description": "Fields: id, software case number, title, description, case number, category, release type, release notes, URL, center, reserved field, reserved field, relevance score.",
+        "prefixItems": [
+          { "type": "string", "description": "Result identifier." },
+          { "type": "string", "description": "Software case number." },
+          { "type": "string", "description": "Title; may contain HTML markup." },
+          { "type": "string", "description": "Description; may contain HTML markup." },
+          { "type": "string", "description": "Software case number." },
+          { "type": "string", "description": "Category." },
+          { "type": "string", "description": "Release type." },
+          { "type": "string", "description": "Release notes or restrictions; may be empty." },
+          { "type": "string", "description": "Related URL; may be empty." },
+          { "type": "string", "description": "NASA center." },
+          { "type": "string", "description": "Reserved/empty field in the observed response." },
+          { "type": "string", "description": "Reserved/empty field in the observed response." },
+          { "type": "number", "description": "Search relevance score." }
+        ],
+        "minItems": 13,
+        "maxItems": 13
+      }
+    }
+  }
+}
